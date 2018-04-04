@@ -25,12 +25,17 @@ database.ref().on("value", function(snapshot) {
     // Set the variables for highBidder/highPrice equal to the stored values in firebase.
     // highPrice = ...
     // highBidder = ...
-
-
+    highPrice=snapshot.val().highPrice;
+    highBidder=snapshot.val().highBidder;
     // Change the HTML to reflect the stored values
 
-
+    $("#highest-bidder").text(snapshot.val().highBidder);
+    $("#highest-price").text(snapshot.val().highPrice);
     // Print the data to the console.
+console.log(highBidder);
+console.log(highPrice);
+
+   
 
 
   }
