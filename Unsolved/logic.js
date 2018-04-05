@@ -14,6 +14,7 @@ firebase.initializeApp(config);
 
 // Assign the reference to the database to a variable named 'database'
 //var database = ...
+var database = firebase.database();
 
 
 // Initial Values
@@ -63,12 +64,20 @@ database.ref().on("value", function(snapshot) {
 
 // --------------------------------------------------------------
 
+var bidderName = "";
+var bidderPrice = "";
+
 // Whenever a user clicks the submit-bid button
 $("#submit-bid").on("click", function(event) {
   // Prevent form from submitting
   event.preventDefault();
 
   // Get the input values
+  bidderName = $("#bidder-name").val().trim();
+  bidderPrice = $("#bidder-price").val().trim();
+
+  console.log("Bidder Name: " + bidderName);
+  console.log("Bidder Price: " + bidderPrice);
 
 
   // Log the Bidder and Price (Even if not the highest)
