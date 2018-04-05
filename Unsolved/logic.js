@@ -39,10 +39,12 @@ database.ref().on("value", function(snapshot) {
   else {
 
     // Change the HTML to reflect the initial values
-
+    $("#highest-bidder").html(highBidder);
+    $("#highest-price").html(highPrice);
 
     // Print the data to the console.
-
+    console.log(highPrice);
+    console.log(highBidder);
 
   }
 
