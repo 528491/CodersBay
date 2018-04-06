@@ -1,10 +1,20 @@
 // Initialize Firebase
 // Make sure to match the configuration to the script version number in the HTML
 // (Ex. 3.0 != 3.7.0)
+var config = {
+  apiKey: "AIzaSyAs-neWRcd7syXn7N0aKcbsXNYRXg_DXdg",
+  authDomain: "harry-clutter-b7ae6.firebaseapp.com",
+  databaseURL: "https://harry-clutter-b7ae6.firebaseio.com",
+  projectId: "harry-clutter-b7ae6",
+  storageBucket: "harry-clutter-b7ae6.appspot.com",
+  messagingSenderId: "605667578097"
+};
+firebase.initializeApp(config);
 
 
 // Assign the reference to the database to a variable named 'database'
 //var database = ...
+var database = firebase.database();
 
 
 // Initial Values
@@ -25,26 +35,35 @@ database.ref().on("value", function(snapshot) {
     // Set the variables for highBidder/highPrice equal to the stored values in firebase.
     // highPrice = ...
     // highBidder = ...
-
-
+    highPrice=snapshot.val().highPrice;
+    highBidder=snapshot.val().highBidder;
     // Change the HTML to reflect the stored values
 
-
+    $("#highest-bidder").text(snapshot.val().highBidder);
+    $("#highest-price").text(snapshot.val().highPrice);
     // Print the data to the console.
+console.log(highBidder);
+console.log(highPrice);
+
+   
 
 
   }
 
   // Else Firebase doesn't have a highPrice/highBidder, so use the initial local values.
   else {
-
+//
     // Change the HTML to reflect the initial values
-    $("#highest-bidder").html(highBidder);
-    $("#highest-price").html(highPrice);
 
+    $("#highest-bidder").html(highBidder);
+    $("#highest-price").html(hi
+   
     // Print the data to the console.
-    console.log(highPrice);
-    console.log(highBidder);
+console.log(initialBidder);
+console.log(initialBid);
+
+
+   
 
   }
 
@@ -56,12 +75,20 @@ database.ref().on("value", function(snapshot) {
 
 // --------------------------------------------------------------
 
+var bidderName = "";
+var bidderPrice = "";
+
 // Whenever a user clicks the submit-bid button
 $("#submit-bid").on("click", function(event) {
   // Prevent form from submitting
   event.preventDefault();
 
   // Get the input values
+  bidderName = $("#bidder-name").val().trim();
+  bidderPrice = $("#bidder-price").val().trim();
+
+  console.log("Bidder Name: " + bidderName);
+  console.log("Bidder Price: " + bidderPrice);
 
 
   // Log the Bidder and Price (Even if not the highest)
