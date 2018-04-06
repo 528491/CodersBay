@@ -55,14 +55,15 @@ console.log(highPrice);
 //
     // Change the HTML to reflect the initial values
 
-    $("#highest-bidder").text(initialBidder);
-    $("#highest-price").text(initialBid);
+    $("#highest-bidder").html(highBidder);
+    $("#highest-price").html(hi
+   
     // Print the data to the console.
 console.log(initialBidder);
 console.log(initialBid);
 
-    // Print the data to the console.
 
+   
 
   }
 
