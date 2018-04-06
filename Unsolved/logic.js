@@ -52,9 +52,14 @@ console.log(highPrice);
 
   // Else Firebase doesn't have a highPrice/highBidder, so use the initial local values.
   else {
-
+//
     // Change the HTML to reflect the initial values
 
+    $("#highest-bidder").text(initialBidder);
+    $("#highest-price").text(initialBid);
+    // Print the data to the console.
+console.log(initialBidder);
+console.log(initialBid);
 
     // Print the data to the console.
 
